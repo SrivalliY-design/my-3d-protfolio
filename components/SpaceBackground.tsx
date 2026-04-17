@@ -41,9 +41,21 @@ export default function SpaceBackground() {
 
   useFrame((state, delta) => {
     if (points.current) {
-      // Gentle rotation for the entire starfield
-      points.current.rotation.z += delta * 0.02;
-      points.current.rotation.y += delta * 0.01;
+      // Base gentle rotation
+      const baseRotZ = delta * 0.02;
+      const baseRotY = delta * 0.01;
+
+      points.current.rotation.z += baseRotZ;
+      points.current.rotation.y += baseRotY;
+
+      // Premium Mouse Parallax Effect
+      // Calculate target rotation based on mouse position (-1 to 1)
+      const targetX = (state.pointer.y * Math.PI) / 20; // Look up/down
+      const targetY = (state.pointer.x * Math.PI) / 20; // Look left/right
+
+      // Smoothly interpolate current rotation to target rotation
+      points.current.rotation.x += (targetX - points.current.rotation.x) * delta * 2;
+      points.current.rotation.y += (targetY - points.current.rotation.y) * delta * 2;
     }
   });
 
