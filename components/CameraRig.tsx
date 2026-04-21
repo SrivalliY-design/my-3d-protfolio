@@ -65,5 +65,5 @@ export default function CameraRig() {
     camera.position.y = 2 + Math.sin(time * 0.4) * 0.1;
   });
 
-  return null;
+  return null;             //Component doesn’t render UI, only controls camera behavior.
 }

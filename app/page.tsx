@@ -1,5 +1,4 @@
 import Scene from "@/components/Scene";
-
 export default function Home() {
   return (
     <main className="relative w-full bg-[#050505]">
@@ -16,13 +15,17 @@ export default function Home() {
           <div className="w-[2px] h-32 bg-gradient-to-b from-[#ff7a00] to-transparent animate-pulse" />
         </div>
       </div>
-
       <div className="fixed inset-0 z-0">
         <Scene />
       </div>
-
       {/* Scroll spacer to create a tall page for GSAP to track */}
       <div className="h-[600vh] w-full pointer-events-none relative z-20" />
     </main>
   );
 }
+
+// import ZoomAnimation from "@/components/ZoomAnimation";
+
+// export default function Home() {
+//   return <ZoomAnimation />;
+// }
